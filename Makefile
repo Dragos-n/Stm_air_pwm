@@ -1,26 +1,34 @@
 # Path to stlink folder for uploading code to board
-STLINK=~/Tools/stlink-1.7.0
+STLINK=~/Tools/stlink-1.7.0//build/Release/bin
+
+# Project src 
+PRJ_SRC=Core/Src/
+
+# STM src
+STM_SRC=Drivers/STM32F4xx_HAL_Driver/Src/
 
 # Put your source files here (*.c)
-SRCS= \
-Core/Src/main.c \
-Core/Src/stm32f4xx_it.c \
-Core/Src/gpio.c \
-Core/Src/stm32f4xx_hal_msp.c \
-Core/Src/system_stm32f4xx.c  \
-Core/Src/tim.c  \
-Core/Src/usart.c \
-Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c \
-Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c \
-Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c \
-Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c \
-Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c \
-Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c \
-Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c \
-Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c
+PRJ_SRCS= \
+$(PRJ_SRC)main.c \
+$(PRJ_SRC)stm32f4xx_it.c \
+$(PRJ_SRC)gpio.c \
+$(PRJ_SRC)stm32f4xx_hal_msp.c \
+$(PRJ_SRC)system_stm32f4xx.c \
+$(PRJ_SRC)tim.c \
+$(PRJ_SRC)usart.c 
 
 #Drivers/STM32F4xx_HAL_Driver/Src
+STM_SRCS=\
+$(STM_SRC)stm32f4xx_hal_gpio.c \
+$(STM_SRC)stm32f4xx_hal_cortex.c \
+$(STM_SRC)stm32f4xx_hal_rcc.c \
+$(STM_SRC)stm32f4xx_hal.c \
+$(STM_SRC)stm32f4xx_hal_tim.c \
+$(STM_SRC)stm32f4xx_hal_tim_ex.c \
+$(STM_SRC)stm32f4xx_hal_dma.c \
+$(STM_SRC)stm32f4xx_hal_uart.c
 
+SRCS = $(PRJ_SRCS) $(STM_SRCS) 
 ######################################
 # target
 ######################################
@@ -39,14 +47,14 @@ PROJ_NAME=Air_stats
 
 # Put your STM32F4 library code directory here, change YOURUSERNAME to yours
 STM_COMMON=Drivers/
-ST_NUCLEO = home/dragos/Tools/ 
+ST_NUCLEO=home/dragos/Tools/ 
 
 # Compiler settings. Only edit CFLAGS to include other header files.
 CC=arm-none-eabi-gcc
 OBJCOPY=arm-none-eabi-objcopy
 
 # Compiler flags
-CFLAGS  = -g -O2 -Wall -Tstm32_flash.ld
+CFLAGS = -g -O2 -Wall -Tstm32_flash.ld
 CFLAGS += -DUSE_STDPERIPH_DRIVER
 CFLAGS += -mlittle-endian -mthumb -mcpu=cortex-m4 -mthumb-interwork
 CFLAGS += -mfloat-abi=hard -mfpu=fpv4-sp-d16
@@ -54,12 +62,12 @@ CFLAGS += -Wfatal-errors
 CFLAGS += -I.
 
 # Include files from STM libraries
-CFLAGS += -I $(STM_COMMON)CMSIS/Include
-CFLAGS += -I $(STM_COMMON)CMSIS/ST/STM32F4xx/Include
-CFLAGS += -I $(STM_COMMON)STM32F4xx_HAL_Driver/Inc
-CFLAGS += -I $(STM_COMMON)STM32F4xx_HAL_Driver/Inc/Legacy
-CFLAGS += -I $(STM_COMMON)CMSIS/Device/ST/STM32F4xx/Include
-CFLAGS += -I Core/Inc
+CFLAGS += -I$(STM_COMMON)CMSIS/Include
+CFLAGS += -I$(STM_COMMON)CMSIS/ST/STM32F4xx/Include
+CFLAGS += -I$(STM_COMMON)STM32F4xx_HAL_Driver/Inc
+CFLAGS += -I$(STM_COMMON)STM32F4xx_HAL_Driver/Inc/Legacy
+CFLAGS += -I$(STM_COMMON)CMSIS/Device/ST/STM32F4xx/Include
+CFLAGS += -ICore/Inc
 
 
 # add startup file to build
