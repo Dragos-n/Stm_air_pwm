@@ -34,7 +34,10 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-
+#define STD_HIGH        			(0x01U)
+#define STD_OFF       				(0x00U)
+#define LED_ON 						HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, STD_HIGH);
+#define LED_OFF						HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, STD_OFF);
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -101,9 +104,16 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
-  {
+  { //int counter;
+    
     /* USER CODE END WHILE */
-
+    LED_ON
+    //counter++;
+    // if (counter >= 100000)
+    // {
+    //   counter = 0;
+    //   LED_OFF;
+    // }
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
@@ -165,6 +175,7 @@ void Error_Handler(void)
   __disable_irq();
   while (1)
   {
+    LED_ON;
   }
   /* USER CODE END Error_Handler_Debug */
 }

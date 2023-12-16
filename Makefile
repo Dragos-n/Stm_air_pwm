@@ -1,5 +1,5 @@
 # Path to stlink folder for uploading code to board
-STLINK=~/Tools/stlink-1.7.0//build/Release/bin
+STLINK=~/Tools/stlink-1.7.0/build/Release/bin
 
 # Project src 
 PRJ_SRC=Core/Src/
@@ -94,3 +94,4 @@ clean:
 # Flash the STM32F4
 burn: proj
 	$(STLINK)/st-flash write $(PROJ_NAME).bin 0x8000000
+	
