@@ -1,0 +1,118 @@
+// Configure debug launch settings
+// Feel free to copy these and modify them for your debugger and MCU
+{
+    "version": "0.2.0",
+    "projectName": "Air_stats",
+    "configurations": [
+        {
+            "name": "JLink launch",
+            "cwd": "${workspaceRoot}",
+            "executable": "${workspaceRoot}/Air_stats.elf",
+            "request": "launch",
+            "type": "cortex-debug",
+            "servertype": "jlink",
+            "device": "STM32F401RE",
+            "interface": "swd",
+            "showDevDebugOutput": "raw",
+            "runToEntryPoint": "true",
+            "preLaunchTask": "Build all",
+            "svdFile": "",
+            "swoConfig": {
+                "enabled": true,
+                "cpuFrequency": 160000000,
+                "swoFrequency": 4000000,
+                "source": "probe",
+                "decoders": [
+                    {
+                        "label": "ITM port 0 output",
+                        "type": "console",
+                        "port": 0,
+                        "showOnStartup": true,
+                        "encoding": "ascii"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "JLink attach",
+            "cwd": "${workspaceRoot}",
+            "executable": "${workspaceRoot}/Air_stats.elf",
+            "request": "attach",
+            "type": "cortex-debug",
+            "servertype": "jlink",
+            "device": "STM32F401RE",
+            "interface": "swd",
+            "preLaunchTask": "Build all",
+            "svdFile": "",
+            "swoConfig": {
+                "enabled": true,
+                "cpuFrequency": 160000000,
+                "swoFrequency": 4000000,
+                "source": "probe",
+                "decoders": [
+                    {
+                        "label": "ITM port 0 output",
+                        "type": "console",
+                        "port": 0,
+                        "showOnStartup": true,
+                        "encoding": "ascii"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "STlink launch",
+            "cwd": "${workspaceRoot}",
+            "executable": "${workspaceRoot}/Air_stats.elf",
+            "request": "launch",
+            "type": "cortex-debug",
+            "servertype": "stutil",
+            "device": "STM32F401RE",
+            "interface": "swd",
+            "preLaunchTask": "Build all",
+            "svdFile": "",
+            "swoConfig": {}
+        },
+        {
+            "name": "STlink attach",
+            "cwd": "${workspaceRoot}",
+            "executable": "${workspaceRoot}/Air_stats.elf",
+            "request": "attach",
+            "type": "cortex-debug",
+            "servertype": "stutil",
+            "device": "STM32F401RE",
+            "interface": "swd",
+            "preLaunchTask": "Build all",
+            "svdFile": "",
+            "swoConfig": {}
+        },
+        {
+            "showDevDebugOutput": "parsed",
+            "cwd": "${workspaceRoot}",
+            "executable": "./build/Air_stats.elf",
+            "name": "Debug STM32",
+            "request": "launch",
+            "type": "cortex-debug",
+            "servertype": "openocd",
+            "preLaunchTask": "Build STM",
+            "device": "",
+            "configFiles": [
+                "openocd.cfg"
+            ]
+        },
+        {
+            "showDevDebugOutput": "parsed",
+            "cwd": "${workspaceRoot}",
+            "executable": "./build/Air_stats.elf",
+            "name": "Attach STM32",
+            "request": "attach",
+            "type": "cortex-debug",
+            "servertype": "openocd",
+            "preLaunchTask": "Build STM",
+            "device": "",
+            "configFiles": [
+                "openocd.cfg"
+            ]
+        }
+    ]
+}

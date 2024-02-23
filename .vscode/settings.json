@@ -1,0 +1,7 @@
+{
+    "cortex-debug.gdbPath": "/home/dragos/Tools/gcc-arm-none-eabi-10.3-2021.10/bin/arm-none-eabi-gdb",
+    "cortex-debug.JLinkGDBServerPath": "/usr/bin/JLinkGDBServer",
+    "cortex-debug.stutilPath": "/home/dragos/Tools/stlink-1.7.0/build/Release/bin/st-util",
+    "cortex-debug.armToolchainPath": "/usr/bin",
+    "cortex-debug.openocdPath": "/usr/bin/openocd",
+}

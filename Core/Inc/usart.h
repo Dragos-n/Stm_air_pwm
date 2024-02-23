@@ -27,11 +27,10 @@ extern "C" {
 
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+
 /* USER CODE BEGIN Includes */
 
 /* USER CODE END Includes */
-
-extern UART_HandleTypeDef huart2;
 
 extern UART_HandleTypeDef huart6;
 
@@ -39,7 +38,6 @@ extern UART_HandleTypeDef huart6;
 
 /* USER CODE END Private defines */
 
-void MX_USART2_UART_Init(void);
 void MX_USART6_UART_Init(void);
 
 /* USER CODE BEGIN Prototypes */
