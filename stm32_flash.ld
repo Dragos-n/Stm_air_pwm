@@ -30,8 +30,8 @@
 */
 
 /* Entry Point */
-ENTRY(Reset_Handler)
-/*ENTRY(main)
+
+ENTRY(main)
 
 /* Highest address of the user mode stack */
 _estack = 0x20020000;    /* end of 128K RAM on AHB bus*/

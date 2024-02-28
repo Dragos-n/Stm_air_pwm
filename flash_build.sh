@@ -7,7 +7,7 @@ make clean
 echo "--Make--"
 make
 echo "--Flash--"
-make burn
+make stflash
 
 end_time=$(date +%s)
 total_time=$((end_time - start_time))

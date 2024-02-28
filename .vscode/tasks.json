@@ -10,7 +10,7 @@
             "command": "make",
             "args": [
                 "all",
-                "-j4"
+                "-j8"
             ]
         },
         {
@@ -33,10 +33,11 @@
             ]
         },
         {
-            "label": "STflash",
+            "label": "stflash",
             "group": "build",
             "type": "shell",
-            "command": "make"
+            "command": "make",
+            "args": ["-j8", "st-flash"]
         },
         {
             "label": "UARTFlash",

@@ -16,7 +16,7 @@
             "showDevDebugOutput": "raw",
             "runToEntryPoint": "true",
             "preLaunchTask": "Build all",
-            "svdFile": "",
+            //"svdFile": "",
             "swoConfig": {
                 "enabled": true,
                 "cpuFrequency": 160000000,
@@ -70,8 +70,23 @@
             "device": "STM32F401RE",
             "interface": "swd",
             "preLaunchTask": "Build all",
+            "showDevDebugOutput": "raw",
             "svdFile": "",
-            "swoConfig": {}
+            "swoConfig":{
+                "enabled": true,
+                "cpuFrequency": 160000000,
+                "swoFrequency": 4000000,
+                "source": "probe",
+                "decoders": [
+                    {
+                        "label": "ITM port 0 output",
+                        "type": "console",
+                        "port": 0,
+                        "showOnStartup": true,
+                        "encoding": "ascii"
+                    }
+                ]
+            }
         },
         {
             "name": "STlink attach",
